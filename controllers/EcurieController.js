@@ -4,7 +4,7 @@ let model = require('../models/ecurie.js');
 
 module.exports.ListerEcurie = function(request, response){
    response.title = 'Liste des écuries';
-    model.getListeEcurie( function (err, result) {
+   model.getListeEcurie( function (err, result) {
         if (err) {
             // gestion de l'erreur
             console.log(err);
@@ -12,6 +12,6 @@ module.exports.ListerEcurie = function(request, response){
         }
         response.listeEcurie = result;
         //console.log(result);
-response.render('listerEcurie', response);
+    response.render('listerEcurie', response);
 });
 }

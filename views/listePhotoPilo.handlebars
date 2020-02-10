@@ -1,0 +1,14 @@
+
+<h1 class="titre"> {{title}} </h1>
+
+{{> listeLettrePilo }}
+
+<div class="horizDiv">
+    {{#each listePhoto}}
+        <div class="pilotePhoto">
+            <img src="/image/pilote/{{this.phoadresse}}" height="110px" width="100px">
+            <a href="/informationPilote/{{this.pilnum}}" class="nomPilote"><p>{{this.pilprenom}} <br> {{this.pilnom}}</p></a>
+        </div>
+    {{/each}}
+</div>
+

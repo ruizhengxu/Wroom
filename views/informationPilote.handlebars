@@ -1,0 +1,49 @@
+
+<h1 class="titre"> {{title}} </h1>
+
+{{> listeLettrePilo }}
+
+<div style="display: flex; align-content: space-around;">
+    <div style="padding-right: 20px; align-self: center">
+        <img src="/image/pilote/{{photoprincipale.phoadresse}}">
+    </div>
+    <div style="padding-right: 30px">
+        <p><b>Nom</b> : {{pilote.pilnom}} {{pilote.pilprenom}}</p>
+        <p><b>Date de naissance : </b>{{formatDate pilote.pildatenai 'DD MMMM YYYY' }}</p>
+        <p><b>Nationalité : </b>{{pilote.paynat}}</p>
+        <p>
+            <b>Écurie : </b>
+            {{#if pilote.ecunom}}
+                {{pilote.ecunom}}
+            {{else}}
+                Pas d'écurie cette année
+            {{/if}}
+        </p>
+
+    </div>
+    <div style="align-self: center">
+        <p><b>Poids : </b>{{pilote.pilpoids}} Kg</p>
+        <p><b>Taille : </b>{{pilote.piltaille}} Cm</p>
+    </div>
+</div>
+
+{{#if sponsor}}
+    <div>
+        <b>Principaux sponsors : </b>
+        {{#each sponsor}}
+            <p style="margin-bottom: -10px"><b>{{this.sponom}}</b> ({{this.SPOSECTACTIVITE}})</p>
+        {{/each}}
+    </div>
+{{/if}}
+
+<div style="text-align: justify">
+    <p style="margin-top: 20px"><b>Qui suis je ? : </b>{{pilote.piltexte}}</p>
+</div>
+
+<div style="display: flex; justify-content: space-between; width: 100%">
+    {{#each listePhotos}}
+        <a href="/image/pilote/{{this.phoadresse}}" data-lightbox="{{this.phosujet}}" data-title="{{this.phocommentaire}}">
+            <img src="/image/pilote/{{this.phoadresse}}" width="160px" height="130px">
+        </a>
+    {{/each}}
+</div>

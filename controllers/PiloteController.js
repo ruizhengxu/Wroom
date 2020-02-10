@@ -90,8 +90,7 @@ module.exports.InformationPilote = function (request, response) {
             response.photoprincipale = result[2][0];
             response.sponsor = result[3];
             response.listePhotos = result[4];
-            console.log(result[2][0]);
-            console.log(result[4]);
+            console.log(result[2]);
             response.render("informationPilote", response);
         }
     );

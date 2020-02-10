@@ -42,7 +42,7 @@
 
 <div style="display: flex; justify-content: space-between; width: 100%">
     {{#each listePhotos}}
-        <a href="/image/pilote/{{this.phoadresse}}" data-lightbox="{{this.phosujet}}" data-title="{{this.phocommentaire}}">
+        <a href="/image/pilote/{{this.phoadresse}}" data-lightbox="{{this.phosujet}}" data-title="{{this.phosujet}}<br>{{this.phocommentaire}}">
             <img src="/image/pilote/{{this.phoadresse}}" width="160px" height="130px">
         </a>
     {{/each}}

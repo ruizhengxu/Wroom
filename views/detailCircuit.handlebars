@@ -1,0 +1,20 @@
+
+<h1 class="titre"> {{title}} </h1>
+
+<div style="display: flex; flex-direction: row; justify-content: space-between">
+    {{> listeLesCircuits }}
+    <div style="display: flex; align-content: space-around; margin-right: 180px">
+        <img src="/image/circuit/{{circuit.ciradresseimage}}" height="300px" width="250px">
+        <div style="margin-left: 20px">
+            <p style="margin-bottom: -10px"><b>Nom : </b>{{circuit.cirnom}}</p>
+            <p style="margin-bottom: -10px"><b>Longueur : </b>{{circuit.cirlongueur}}</p>
+            <p style="margin-bottom: -10px"><b>Nombre de spectateurs : </b>{{circuit.cirnbspectateurs}}</p>
+            <p><b>Pays : </b>{{circuit.paynom}}</p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <p>{{circuit.cirtext}}</p>
+</div>
+

@@ -50,6 +50,7 @@
  	  margin:10px;
  	  -moz-border-radius:15px;
  	  border-radius:15px;
+	  order: 2;
  }
 
  .myboth  {

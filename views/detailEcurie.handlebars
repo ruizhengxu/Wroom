@@ -1,0 +1,36 @@
+
+<div style="display: inline-block; width: 100%">
+    {{> listeLesEcuries}}
+    <div style="display: flex; float: left; width: 70%;">
+        <img src="/image/ecurie/{{ecurie.ecuadresseimage}}" height="150px" width="180px">
+        <div style="margin-left: 20px">
+            <p style="margin-bottom: -10px"><b>Nom : </b>{{ecurie.ecunom}}</p>
+            <p style="margin-bottom: -10px"><b>Directeur : </b>{{ecurie.ecunomdir}}</p>
+            <p style="margin-bottom: -10px"><b>Adresse : </b>{{ecurie.ecuadrsiege}}</p>
+            <p style="margin-bottom: -10px"><b>Pays : </b>{{ecurie.paynom}}</p>
+            {{#if ecurie.fpnom}}
+                <p><b>Fournisseur de pneumatiques : </b>{{ecurie.fpnom}}</p>
+            {{/if}}
+        </div>
+    </div>
+    <div style="float: left; width: 70%; margin-top: 20px">
+        {{#ifCond ecurie.nbPilote '==' 0}}
+            {{#ifCond ecurie.nbSpon '==' 0}}
+                <p>Cette écurie ne participe pas au championnat cette année</p>
+            {{/ifCond}}
+        {{else}}
+            <b>Pilotes : </b>
+            <br>
+            {{#each pilote}}
+                <a class="tooltip" href="/informationPilote/{{this.pilnum}}">
+                    {{this.pilnom}} {{this.pilprenom}}
+                    <span>
+                        <img src="/image/pilote/{{this.phoadresse}}" width="100px" height="120px">
+                        <p>{{this.piltexte}}...</p>
+                    </span>
+                </a>
+                <br>
+            {{/each}}
+        {{/ifCond}}
+    </div>
+</div>

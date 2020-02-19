@@ -28,3 +28,28 @@ module.exports.getListeEcurie = function (callback) {
          }
       });
 };
+
+module.exports.getEcurieInformation = function(data, callback) {
+    db.getConnection( function (err, connexion) {
+        if (!err) {
+            let sql = "select e.ecunum, ecunom, ecunomdir, ecuadrsiege, ecuadresseimage, paynom, fpnom, count(pilnom) as nbPilote,\n" +
+                "count(sponum) as nbSpon from ecurie e join pays p on p.paynum = e.paynum left join pilote pi on\n" +
+                "pi.ecunum = e.ecunum left join finance f on f.ecunum = e.ecunum left join fourn_pneu fo on\n" +
+                "fo.fpnum = e.fpnum where e.ecunum = " + data;
+            //console.log(sql);
+            connexion.query(sql, callback);
+            connexion.release();
+        }
+    });
+}
+
+module.exports.getPiloteDeLEcurie = function(data, callback) {
+    db.getConnection(function(err, connection) {
+        if (!err) {
+            let sql = "select distinct ecunom, p.pilnum, pilnom, pilprenom, trim(left(piltexte, 120)) as piltexte, phoadresse from ecurie e join pilote p\n" +
+                " on p.ecunum = e.ecunum join photo ph on ph.pilnum = p.pilnum where phonum = 1 and e.ecunum = " + data;
+            connection.query(sql, callback);
+            connection.release();
+        }
+    })
+}

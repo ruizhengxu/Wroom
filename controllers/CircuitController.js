@@ -39,7 +39,6 @@ module.exports.DetailCircuit = function(request, response) {
             }
             response.listeCircuit = result[0];
             response.circuit = result[1][0];
-            console.log(result[1]);
             response.render("detailCircuit", response);
         }
     );

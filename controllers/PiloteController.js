@@ -19,7 +19,7 @@ module.exports.Repertoire = function(request, response){
 
 module.exports.ListePhotoPilote = function (request, response) {
     let data = request.params.lettre;
-    response.title = 'Pilotes dont le nom commence par ' + data;
+    response.title = 'Informations pilote';
     async.parallel ([
         function (callback) {
             model.getToutesLesLettresDesPilotes(function (err, result) {
@@ -90,7 +90,7 @@ module.exports.InformationPilote = function (request, response) {
             response.photoprincipale = result[2][0];
             response.sponsor = result[3];
             response.listePhotos = result[4];
-            console.log(result[2]);
+            //console.log(result[2]);
             response.render("informationPilote", response);
         }
     );

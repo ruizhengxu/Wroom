@@ -27,6 +27,7 @@ module.exports = function(app){
 
  //Résultats
    app.get('/resultats', ResultatController.ListerResultat);
+    app.get('/detailPrix/:num', ResultatController.DetailPrix);
 
 
 // tout le reste

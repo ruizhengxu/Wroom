@@ -1,0 +1,25 @@
+
+<div style="display: inline-block; width: 100%">
+    <b>{{prixInfo.gpnom}} ({{formatDate prixInfo.gpdate 'DD/MM/YYYY'}})</b>
+    {{> listeLesResultats}}
+    <div style="display: flex; float: left; width: 70%; margin-top: 20px">
+        <table style="border: 2px groove ; text-align: center">
+            <tr>
+                <th style="border: 2px groove; padding: 5px"><b>Place</b></th>
+                <th style="border: 2px groove; padding: 5px"><b>Pilote</b></th>
+                <th style="border: 2px groove; padding: 5px"><b>Temps</b></th>
+                <th style="border: 2px groove; padding: 5px"><b>Nb points</b></th>
+            </tr>
+            {{#each prix}}
+                <tr>
+                    <td style="border: 2px groove ; padding: 5px">{{this.place}}</td>
+                    <td style="border: 2px groove ; padding: 5px">{{this.pilnom}} {{this.pilprenom}}</td>
+                    <td style="border: 2px groove ; padding: 5px">{{this.tempscourse}}</td>
+                    <td style="border: 2px groove ; padding: 5px">{{this.pilpoints}}</td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
+</div>
+
+<p style="text-align: justify">{{prixInfo.gpcommentaire}}</p>

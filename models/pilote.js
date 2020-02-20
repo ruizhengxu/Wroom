@@ -85,7 +85,7 @@ module.exports.getPhotoProfilPilote = function (data, callback) {
             // execution de la requête SQL
             let sql = "select pi.pilnum, phosujet, phocommentaire, phoadresse from pilote pi join photo ph on ph.pilnum = pi.pilnum\n" +
                 "where pi.pilnum = " + data + " limit 1";
-            console.log(sql);
+            //console.log(sql);
             connexion.query(sql, callback);
 
             // la connexion retourne dans le pool

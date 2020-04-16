@@ -21,9 +21,10 @@ module.exports.getListePrix = function (callback) {
 module.exports.getResultatPrix = function(data, callback) {
     db.getConnection(function (err, connection) {
         if (!err) {
-            let sql = "select row_number() over(order by tempscourse) as place, tempscourse, pilnom, pilprenom, \n" +
-                "coalesce(pilpoints, 0) as pilpoints from grandprix g join course c on c.gpnum = g.gpnum join pilote pi \n" +
-                "on pi.pilnum = c.pilnum where g.gpnum = " + data + " order by tempscourse";
+            let sql = "select place, tempscourse, pilnom, pilprenom, ptnbpointsplace from points p join\n" +
+                "(select row_number() over(order by tempscourse) as place, tempscourse, pilnom, pilprenom\n" +
+                "from grandprix g join course c on c.gpnum = g.gpnum join pilote pi\n" +
+                "on pi.pilnum = c.pilnum where g.gpnum = " + data + " order by tempscourse, place) s on p.ptplace = s.place";
             //console.log(sql);
             connection.query(sql, callback);
             connection.release();
